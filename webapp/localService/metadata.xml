@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zmm_sd_0003" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="TableSettingType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Uuid"/>
+                    <PropertyRef Name="Client"/>
+                    <PropertyRef Name="Werks"/>
+                    <PropertyRef Name="Bklas"/>
+                    <PropertyRef Name="Zsfld"/>
+                    <PropertyRef Name="Ptyp"/>
+                </Key>
+                <Property Name="Uuid" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:heading="" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Client" Type="Edm.String" Nullable="false" MaxLength="3" sap:label=""/>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:heading=""/>
+                <Property Name="Bklas" Type="Edm.String" Nullable="false" MaxLength="4" sap:label=""/>
+                <Property Name="Zsfld" Type="Edm.String" Nullable="false" MaxLength="10" sap:label=""/>
+                <Property Name="Ptyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:label=""/>
+                <Property Name="Fieldname" Type="Edm.String" MaxLength="100" sap:label=""/>
+                <Property Name="Zsbgb" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="Zsumc" Type="Edm.String" MaxLength="300" sap:label=""/>
+                <Property Name="Zdfgb" Type="Edm.String" MaxLength="1" sap:label=""/>
+                <Property Name="Racct" Type="Edm.String" MaxLength="10" sap:label=""/>
+            </EntityType>
+            <EntityType Name="PlantType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
+            </EntityType>
+            <EntityType Name="ProductType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Product" sap:quickinfo="Product Number"/>
+                <Property Name="ProductDescription" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
+                <Property Name="ProductDescriptionText" Type="Edm.String" MaxLength="85"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
+            </EntityType>
+            <EntityType Name="VClassType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ValuationClass"/>
+                </Key>
+                <Property Name="ValuationClass" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Valuation Class"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="25" sap:label="Description" sap:quickinfo="Description of valuation class"/>
+            </EntityType>
+            <EntityType Name="MainDataType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="sspmon"/>
+                    <PropertyRef Name="espmon"/>
+                    <PropertyRef Name="Spmon"/>
+                    <PropertyRef Name="Bwkey"/>
+                    <PropertyRef Name="Matnr"/>
+                </Key>
+                <Property Name="sspmon" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="espmon" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="Spmon" Type="Edm.String" Nullable="false" MaxLength="15" sap:label=""/>
+                <Property Name="Bwkey" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Valuation Area" sap:heading=""/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="maktx" sap:label="Material" sap:heading="" sap:quickinfo="Material Number"/>
+                <Property Name="maktx" Type="Edm.String" MaxLength="40" sap:label="Product Description" sap:heading=""/>
+                <Property Name="Bklas" Type="Edm.String" MaxLength="4" sap:label=""/>
+                <Property Name="Meins" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:heading="" sap:semantics="unit-of-measure"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:label="" sap:semantics="currency-code"/>
+                <Property Name="f000m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f000a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f000d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f001m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f001a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f001d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f002m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f002a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f002d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f003m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f003a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f003d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f004m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f004a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f004d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f005m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f005a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f005d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f006m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f006a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f006d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f007m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f007a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f007d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f008m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f008a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f008d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f009m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f009a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f009d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f010m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f010a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f010d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f011m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f011a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f011d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f012m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f012a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f012d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f013m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f013a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f013d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f014m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f014a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f014d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f015m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f015a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f015d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f016m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f016a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f016d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f017m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f017a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f017d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f018m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f018a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f018d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f019m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f019a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f019d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f020m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f020a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f020d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f021m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f021a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f021d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f022m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f022a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f022d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f023m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f023a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f023d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f024m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f024a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f024d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f025m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f025a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f025d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f026m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f026a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f026d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f027m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f027a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f027d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f028m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f028a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f028d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f029m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f029a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f029d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f030m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f030a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f030d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f031m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f031a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f031d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f032m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f032a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f032d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f033m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f033a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f033d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f034m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f034a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f034d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f035m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f035a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f035d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f036m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f036a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f036d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f037m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f037a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f037d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f038m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f038a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f038d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f039m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f039a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f039d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f040m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f040a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f040d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f041m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f041a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f041d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f042m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f042a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f042d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f043m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f043a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f043d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f044m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f044a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f044d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f045m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f045a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f045d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f046m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f046a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f046d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f047m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f047a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f047d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f048m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f048a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f048d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f049m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f049a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f049d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f050m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f050a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f050d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f099m" Type="Edm.Decimal" Precision="20" Scale="3" sap:unit="Meins"/>
+                <Property Name="f099a" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <Property Name="f099d" Type="Edm.Decimal" Precision="20" Scale="0"/>
+                <NavigationProperty Name="Parameters" Relationship="cds_zmm_sd_0003.assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" FromRole="ToRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" ToRole="FromRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="MainDataParameters" sap:semantics="parameters" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="sspmon"/>
+                    <PropertyRef Name="espmon"/>
+                </Key>
+                <Property Name="sspmon" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:parameter="mandatory" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="espmon" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:parameter="mandatory" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Set" Relationship="cds_zmm_sd_0003.assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" FromRole="FromRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" ToRole="ToRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE"/>
+            </EntityType>
+            <Association Name="assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" sap:content-version="1">
+                <End Type="cds_zmm_sd_0003.MainDataParameters" Multiplicity="1" Role="FromRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE"/>
+                <End Type="cds_zmm_sd_0003.MainDataType" Multiplicity="*" Role="ToRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE"/>
+            </Association>
+            <EntityContainer Name="cds_zmm_sd_0003_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="TableSetting" EntityType="cds_zmm_sd_0003.TableSettingType" sap:content-version="1"/>
+                <EntitySet Name="Plant" EntityType="cds_zmm_sd_0003.PlantType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Product" EntityType="cds_zmm_sd_0003.ProductType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="VClass" EntityType="cds_zmm_sd_0003.VClassType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="MainDataSet" EntityType="cds_zmm_sd_0003.MainDataType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MainData" EntityType="cds_zmm_sd_0003.MainDataParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" Association="cds_zmm_sd_0003.assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MainData" Role="FromRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE"/>
+                    <End EntitySet="MainDataSet" Role="ToRole_assoc_5CF1769D2556ACFFDB6EC6CC80E21ECE"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities/MainDataSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities/VClass" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities/MainData" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>sspmon</PropertyPath>
+                                <PropertyPath>espmon</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="Parameters"/>
+                                    <PropertyValue Property="FilterRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Filterable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>sspmon</PropertyPath>
+                                <PropertyPath>espmon</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities/TableSetting" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zmm_sd_0003.cds_zmm_sd_0003_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://my414214.s4hana.cloud.sap:443/sap/opu/odata/sap/ZMM_O2_0003/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my414214.s4hana.cloud.sap:443/sap/opu/odata/sap/ZMM_O2_0003/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
