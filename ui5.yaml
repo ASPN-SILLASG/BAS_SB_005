@@ -16,8 +16,10 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /sap
+          - authenticationType: reentranceTicket # SAML support for vscode
+            path: /sap
             url: https://my414214-api.s4hana.cloud.sap
+            destination: DINE_DEV
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
