@@ -15,6 +15,26 @@
       "version": "1.14.5",
       "toolsId": "11b1c617-195f-46c5-847b-4b3ca3fabe4f"
     },
+    "dataSources": {
+      "ZMM_UI_0003_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZMM_UI_0003_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/mainService/ZMM_UI_0003_VAN.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZMM_UI_0003/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZMM_UI_0003_VAN"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
     "crossNavigation": {
       "inbounds": {
         "ZCBO_MM_0003-manage": {
@@ -80,6 +100,11 @@
         "settings": {
           "bundleName": "com.dine.mm.zmm0003.i18n.i18n"
         }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
@@ -92,12 +117,14 @@
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "com.dine.mm.zmm0003.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.dine.mm.zmm0003.view",
+        "async": true,
+        "viewPath": "com.dine.mm.zmm0003.view"
       },
       "routes": [
         {
@@ -110,11 +137,8 @@
       ],
       "targets": {
         "TargetMain": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Main",
-          "viewName": "Main"
+          "id": "Main",
+          "name": "Main"
         }
       }
     },

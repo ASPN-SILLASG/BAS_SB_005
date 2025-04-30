@@ -3,8 +3,12 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:core="sap.ui.core"
     xmlns:fb="sap.ui.comp.filterbar"
     xmlns:table="sap.ui.table"
     xmlns:u="sap.ui.unified"
@@ -16,126 +20,69 @@
         <f:header>
             <f:DynamicPageHeader>
                 <f:content>
-                    <fb:FilterBar
-                        id="idFilterBar"
-                        reset="onReset"
-                        showRestoreButton="true"
-                        useToolbar="false"
-                        showClearOnFB="true"
-                        clear=".onClearFilter"
-                        search=".onSearch()"
-                    >
-                        <fb:filterGroupItems>
-                            <fb:FilterGroupItem
-                                groupName="__$INTERNAL$"
-                                name="Spmon"
-                                label="{i18n>DateSelect}"
-                                visibleInFilterBar="true"
-                            >
-                                <fb:control>
-                                    <DateRangeSelection
-                                        required="true"
-                                        name="Spmon"
-                                        id="idFBSpmon"
-                                        displayFormat="yyyyMM"
-                                    />
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem
-                                groupName="__$INTERNAL$"
-                                name="Bwkey"
-                                label="{i18n>Plant}"
-                                visibleInFilterBar="true"
-                            >
-                                <fb:control>
-                                    <MultiInput
-                                        id="idFBPlant"
-                                        name="Bwkey"
-                                        required="true"
-                                        valueHelpRequest=".onVHPlant"
-                                    />
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem
-                                groupName="__$INTERNAL$"
-                                name="Bklas"
-                                label="{i18n>VClass}"
-                                visibleInFilterBar="true"
-                            >
-                                <fb:control>
-                                    <MultiInput
-                                        name="Bklas"
-                                        id="idFBVClass"
-                                        required="true"
-                                        valueHelpRequest=".onVHVClass"
-                                    />
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem
-                                groupName="__$INTERNAL$"
-                                name="Matnr"
-                                label="{i18n>Product}"
-                                visibleInFilterBar="true"
-                            >
-                                <fb:control>
-                                    <MultiInput
-                                        name="Matnr"
-                                        id="idFBProduct"
-                                        valueHelpRequest=".onVHProduct"
-                                    />
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                        </fb:filterGroupItems>
-                    </fb:FilterBar>
+                    <smartFilterBar:SmartFilterBar
+                        id="mm0003.smartFilterBar"
+                        entitySet="MainDataResults"
+                        persistencyKey="mm0003_smartFilterBar"
+                        search=".onSearch">
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration
+                                key="sspmon"
+                                visibleInAdvancedArea="true"
+                                preventInitialDataFetchInValueHelpDialog="false"
+                                visible="false">
+                            </smartFilterBar:ControlConfiguration>
+                            
+                            <smartFilterBar:ControlConfiguration
+                                key="espmon"
+                                visibleInAdvancedArea="true"
+                                preventInitialDataFetchInValueHelpDialog="false"
+                                visible="false">
+                            </smartFilterBar:ControlConfiguration>
+
+                            <smartFilterBar:ControlConfiguration
+                                key="Spmon"
+                                mandatory="mandatory"
+                                visibleInAdvancedArea="true"
+                                preventInitialDataFetchInValueHelpDialog="false">
+                                <smartFilterBar:customControl>
+                                    <DateRangeSelection id="mm0003.dateRangeSelection" displayFormat="yyyyMM" />
+                                </smartFilterBar:customControl>
+                            </smartFilterBar:ControlConfiguration>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:layoutData>
+                            <FlexItemData shrinkFactor="0" />
+                        </smartFilterBar:layoutData>
+                    </smartFilterBar:SmartFilterBar>
                 </f:content>
             </f:DynamicPageHeader>
         </f:header>
 
         <f:content>
-            <table:Table
-                id="idTable"
-                selectionMode="None"
-                selectionBehavior="Row"
-                rowMode="Auto"
-                threshold="3"
-                rowsUpdated=".onRowsUpdated"
-                sort=".onSort"
-                columnResize="onColumnResize"
-                columnMove="onColumnMove"
-                rows="{ path: 'DataModel>/items' }"
-                sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
-                enableBusyIndicator="true"
-            >
-                <table:extension>
-                    <Toolbar height="45px">
-                        <Title
-                            text="{i18n>titleTable}"
-                            level="H2"
-                        />
-                        <ToolbarSeparator />
-                        <vm:VariantManagement
-                            id="idp13nVm"
-                            for="idTable"
-                        />
-                        <ToolbarSpacer />
-
-                        <ToolbarSeparator />
-                        <Button
-                            icon="sap-icon://excel-attachment"
-                            text="{i18n>BTN_EXCEL_DOWN}"
-                            tooltip="Excel export"
-                            press=".excelExport"
-                        />
-
-                        <ToolbarSeparator />
-                        <Button
-                            icon="sap-icon://action-settings"
-                            press=".openPersoDialog"
-                        />
-                    </Toolbar>
-                </table:extension>
-                <table:columns />
-            </table:Table>
+            <smartTable:SmartTable
+                id="mm0003.smartTable"
+                smartFilterId="mm0003.smartFilterBar"
+                header="수불부"
+                showRowCount="true"
+                entitySet="MainDataResults"
+                tableType="AnalyticalTable"
+                initiallyVisibleFields=""
+                requestAtLeastFields=""
+                enableAutoBinding="false"
+                beforeRebindTable=".onBeforeRebindTable"
+                showOverlay="true"
+                enableAutoColumnWidth="true"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                persistencyKey="mm0003_smartTable"
+                enableExport="true"
+                enableCopy="false"
+                enablePaste="false"
+                app:useSmartToggle="true">
+                <smartTable:layoutData>
+                    <FlexItemData growFactor="1" baseSize="0%" />
+                </smartTable:layoutData>
+            </smartTable:SmartTable>
         </f:content>
     </f:DynamicPage>
 </mvc:View>

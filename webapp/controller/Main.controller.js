@@ -33,9 +33,39 @@ sap.ui.define([
         return BaseController.extend("com.dine.mm.zmm0003.controller.Main", {
             onInit: function () {
 
-                this.setInitPage();
+                // this.setInitPage();
 
             },
+
+
+
+            onBeforeRebindTable(oEvent) {
+                const sBindingPath = `/MainData(sspmon='${this.sSspmon}',espmon='${this.sEspmon}')/Results`;
+                
+                return new Promise((resolve) => {
+                    oEvent.getSource().mProperties.tableBindingPath = sBindingPath;
+                    resolve();
+                });
+            },
+
+            onSearch() {
+                const oDateRangeSelection = this.byId("mm0003.dateRangeSelection");
+
+                const sSspmon = oDateRangeSelection.getProperty("dateValue");
+                const sEspmon = oDateRangeSelection.getProperty("secondDateValue");
+
+                function formatToYYYYMM(dDate) {
+                    const sYear = dDate.getFullYear();
+                    const sMonth = String(dDate.getMonth() + 1).padStart(2, "0");
+
+                    return `${sYear}${sMonth}`;
+                }
+                  
+                  this.sSspmon = formatToYYYYMM(sSspmon);
+                  this.sEspmon = formatToYYYYMM(sEspmon);
+            },
+
+
 
             setInitPage: function () {
                 _isLoadingFileds = false;
@@ -120,25 +150,25 @@ sap.ui.define([
             },
 
             //=================Action=============
-            onSearch: function () {
+            // onSearch: function () {
 
-                if (!this.checkFBValue()) return;
+            //     if (!this.checkFBValue()) return;
 
-                var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
-                if (odatafilter.length > 1) {
-                    odatafilter = new Filter(odatafilter, true);
-                }
+            //     var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
+            //     if (odatafilter.length > 1) {
+            //         odatafilter = new Filter(odatafilter, true);
+            //     }
 
-                if (!_isLoadingFileds) {
-                    this.getDynamicFields(function (response) {
-                        if (response == 'S') {
-                            this.getData(odatafilter);
-                        }
-                    }.bind(this));
-                } else {
-                    this.getData(odatafilter);
-                }
-            },
+            //     if (!_isLoadingFileds) {
+            //         this.getDynamicFields(function (response) {
+            //             if (response == 'S') {
+            //                 this.getData(odatafilter);
+            //             }
+            //         }.bind(this));
+            //     } else {
+            //         this.getData(odatafilter);
+            //     }
+            // },
 
             openPersoDialog: function (oEvt) {
                 Engine.getInstance().show(_oTable, ["Columns"], {

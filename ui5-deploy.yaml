@@ -20,6 +20,6 @@ builder:
           name: ZCBO_MM_0003
           description: '[MM]월 수불부'
           package: ZCBO_MM_0003
-          transport: JBCK904617
+          transport: JBCK906016
         exclude:
           - /test/
