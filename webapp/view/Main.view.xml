@@ -22,7 +22,7 @@
                 <f:content>
                     <smartFilterBar:SmartFilterBar
                         id="mm0003.smartFilterBar"
-                        entitySet="MainDataResults"
+                        entitySet="ZSB_R_0005Results"
                         persistencyKey="mm0003_smartFilterBar"
                         search=".onSearch">
                         <smartFilterBar:controlConfiguration>
@@ -64,7 +64,7 @@
                 smartFilterId="mm0003.smartFilterBar"
                 header="수불부"
                 showRowCount="true"
-                entitySet="MainDataResults"
+                entitySet="ZSB_R_0005Results"
                 tableType="AnalyticalTable"
                 initiallyVisibleFields=""
                 requestAtLeastFields=""

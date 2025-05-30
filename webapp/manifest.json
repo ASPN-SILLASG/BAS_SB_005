@@ -16,19 +16,19 @@
       "toolsId": "11b1c617-195f-46c5-847b-4b3ca3fabe4f"
     },
     "dataSources": {
-      "ZMM_UI_0003_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZMM_UI_0003_VAN',Version='0001')/$value/",
+      "ZUI_SUBUL_0000_O2_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SUBUL_0000_O2_VAN',Version='0001')/$value/",
         "type": "ODataAnnotation",
         "settings": {
-          "localUri": "localService/mainService/ZMM_UI_0003_VAN.xml"
+          "localUri": "localService/mainService/ZUI_SUBUL_0000_O2_VAN.xml"
         }
       },
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZMM_UI_0003/",
+        "uri": "/sap/opu/odata/sap/ZUI_SUBUL_0000_O2/",
         "type": "OData",
         "settings": {
           "annotations": [
-            "ZMM_UI_0003_VAN"
+            "ZUI_SUBUL_0000_O2_VAN"
           ],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
@@ -39,15 +39,6 @@
       "inbounds": {
         "ZCBO_MM_0003-manage": {
           "semanticObject": "ZCBO_MM_0003",
-          "action": "manage",
-          "title": "{{flpTitle}}",
-          "signature": {
-            "parameters": {},
-            "additionalParameters": "allowed"
-          }
-        },
-        "ZCBO_MM_0003_01-manage": {
-          "semanticObject": "ZCBO_MM_0003_01",
           "action": "manage",
           "title": "{{flpTitle}}",
           "signature": {

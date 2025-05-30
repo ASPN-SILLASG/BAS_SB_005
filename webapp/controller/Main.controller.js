@@ -33,14 +33,12 @@ sap.ui.define([
         return BaseController.extend("com.dine.mm.zmm0003.controller.Main", {
             onInit: function () {
 
-                // this.setInitPage();
+                this.setInitPage();
 
             },
 
-
-
             onBeforeRebindTable(oEvent) {
-                const sBindingPath = `/MainData(sspmon='${this.sSspmon}',espmon='${this.sEspmon}')/Results`;
+                const sBindingPath = `/ZSB_R_0005(sspmon='${this.sSspmon}',espmon='${this.sEspmon}')/Results`;
                 
                 return new Promise((resolve) => {
                     oEvent.getSource().mProperties.tableBindingPath = sBindingPath;
@@ -65,8 +63,6 @@ sap.ui.define([
                   this.sEspmon = formatToYYYYMM(sEspmon);
             },
 
-
-
             setInitPage: function () {
                 _isLoadingFileds = false;
 
@@ -75,7 +71,7 @@ sap.ui.define([
 
 
                 //메인 Model
-                _oModelMain = new ODataModel("/sap/opu/odata/sap/ZMM_O2_0003", {
+                _oModelMain = new ODataModel("/sap/opu/odata/sap/ZUI_SUBUL_0000_O2", {
                     defaultOperationMode: "Server"
                 });
                 this.getOwnerComponent().setModel(_oModelMain, "MainModel");
@@ -85,7 +81,7 @@ sap.ui.define([
                 _oDataModel = new JSONModel({ "items": [] });
                 this.getView().setModel(_oDataModel, "DataModel");
 
-                _oTable = this.getView().byId("idTable");
+                _oTable = this.getView().byId("mm0003.smartTable");
                 this.initTableColums();
                 //디폴트로 나와야 할값들
 
@@ -97,10 +93,10 @@ sap.ui.define([
 
                 //테이블 Excel 다운로드 
                 this.excelDownLoad = new ExcelDownLoad(this);
-
-
+                
                 this._registerForP13n();
             },
+
             //===========Odata MeataDataPassing=========
             metaDataLoading: function (response) {
 
@@ -109,13 +105,12 @@ sap.ui.define([
                 //CDS 모든 필드들 가져 오기
                 let entityList = response.getParameters().metadata.oMetadata.dataServices.schema[0].entityType;
                 for (let i = 0; i < entityList.length; i++) {
-                    if (entityList[i].name == "MainDataType") {
+                    if (entityList[i].name == "ZSB_R_0005Results") {
                         _cdsFiledArray = entityList[i].property
                         break;
                     }
                 }
             },
-
 
             //=========Dynamic Fields=========
             /**화면 필드 이릅 세팅 Request*/
@@ -205,7 +200,7 @@ sap.ui.define([
                 _tableColums.push({ id: "idColPNP", columsName: "P/NP", value: "PNP" });
                 _tableColums.push({ id: "idColMeins", columsName: "단위", value: "Meins" });
                 _tableColums.push({ id: "idColWaers", columsName: "통화", value: "Waers" });
-                this.settingTable();
+                //this.settingTable();
 
                 _tableColums = [];
             },
@@ -406,7 +401,7 @@ sap.ui.define([
 
                 var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
                 let oSearchDate = this.getView().byId("idFBSpmon");
-                this.excelDownLoad.downLoad(_oModelMain, "/MainData(sspmon='" + this.getYYYYMM(oSearchDate.getDateValue()) + "',espmon='" + this.getYYYYMM(oSearchDate.getSecondDateValue()) + "')/Set", odatafilter, function (code) {
+                this.excelDownLoad.downLoad(_oModelMain, "/ZSB_R_0005(sspmon='" + this.getYYYYMM(oSearchDate.getDateValue()) + "',espmon='" + this.getYYYYMM(oSearchDate.getSecondDateValue()) + "')/Set", odatafilter, function (code) {
                     this.closeLoading();
                 }.bind(this), _oTable.getColumns());
             },
@@ -481,7 +476,7 @@ sap.ui.define([
                 let oSearchDate = this.getView().byId("idFBSpmon");
 
                 //데이터 호출
-                _oModelMain.read("/MainData(sspmon='" + this.getYYYYMM(oSearchDate.getDateValue()) + "',espmon='" + this.getYYYYMM(oSearchDate.getSecondDateValue()) + "')/Set", {
+                _oModelMain.read("/ZSB_R_0005(sspmon='" + this.getYYYYMM(oSearchDate.getDateValue()) + "',espmon='" + this.getYYYYMM(oSearchDate.getSecondDateValue()) + "')/Set", {
                     filters: odatafilter,
                     sorters: [
                         new Sorter("Matnr", true),
