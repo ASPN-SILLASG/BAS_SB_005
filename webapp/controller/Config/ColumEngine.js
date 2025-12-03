@@ -14,7 +14,11 @@ sap.ui.define(
     function (BaseObject, MetadataHelper, Engine, SelectionController, SortController, GroupController, ColumnWidthController, CoreLibrary, Sorter) {
 
         var _oTable;
+<<<<<<< HEAD
         return BaseObject.extend("com.dine.mm.zmm0003.controller.Config.ColumEngine", {
+=======
+        return BaseObject.extend("z002sb005.controller.Config.ColumEngine", {
+>>>>>>> fba58ff (커밋)
 
 
 
@@ -52,6 +56,7 @@ sap.ui.define(
                 if (!this.oMetadataHelper) {
 
                     this.oMetadataHelper = new MetadataHelper([
+<<<<<<< HEAD
                         {
                             key: "idColSpmon",
                             label: i18n.getText("DateSelect"),
@@ -137,6 +142,89 @@ sap.ui.define(
                             label: i18n.getText("Waers"),
                             path: "Waers"
                         }
+=======
+                        // {
+                        //     key: "idColBwkey",
+                        //     label: i18n.getText("Bwkey"),
+                        //     path: "Bwkey"
+                        // },
+                        // {
+                        //     key: "idColBklas",
+                        //     label: i18n.getText("Bklas"),
+                        //     path: "Bklas"
+                        // },
+                        // {
+                        //     key: "idColBklast",
+                        //     label: i18n.getText("Bklast"),
+                        //     path: "Bklast"
+                        // },
+                        // {
+                        //     key: "idColMatnr",
+                        //     label: i18n.getText("ProductNo"),
+                        //     path: "Matnr"
+                        // },
+                        // { key: "idColmaktx", label: "자재명", path: "maktx" },
+                        // {
+                        //     key: "idColMatkl",
+                        //     label: i18n.getText("Matkl"),
+                        //     path: "Matkl"
+                        // },
+                        // {
+                        //     key: "idColMatklt",
+                        //     label: i18n.getText("Matklt"),
+                        //     path: "Matklt"
+                        // },
+                        // {
+                        //     key: "idColExtwg",
+                        //     label: i18n.getText("Extwg"),
+                        //     path: "Extwg"
+                        // },
+                        // {
+                        //     key: "idColExtwgt",
+                        //     label: i18n.getText("Extwgt"),
+                        //     path: "Extwgt"
+                        // },
+                        // {
+                        //     key: "idColMaker",
+                        //     label: i18n.getText("Maker"),
+                        //     path: "Maker"
+                        // },
+                        // {
+                        //     key: "idColYY1MAKER",
+                        //     label: i18n.getText("YY1_MAT_MAKER_PRDT"),
+                        //     path: "YY1_MAT_MAKER_PRDT"
+                        // },
+                        // {
+                        //     key: "idColPrange",
+                        //     label: i18n.getText("Prange"),
+                        //     path: "Prange"
+                        // },
+                        // {
+                        //     key: "idColYY1RANGE",
+                        //     label: i18n.getText("YY1_PROD_RANGE_PRDT"),
+                        //     path: "YY1_PROD_RANGE_PRDT"
+                        // },
+                        // {
+                        //     key: "idColMat_JJ",
+                        //     label: i18n.getText("Mat_JJ"),
+                        //     path: "Mat_JJ"
+                        // },
+                        // {
+                        //     key: "idColPNP",
+                        //     label: i18n.getText("PNP"),
+                        //     path: "PNP"
+                        // },
+                        // {
+                        //     key: "idColMeins",
+                        //     label: i18n.getText("Meins"),
+                        //     path: "Meins"
+                        // },
+                        // {
+                        //     key: "idColWaers",
+                        //     label: i18n.getText("Waers"),
+                        //     path: "Waers"
+                        // }
+>>>>>>> fba58ff (커밋)
 
                     ]);
 
@@ -146,6 +234,7 @@ sap.ui.define(
 
             addHelper: function (i18n, aColums) {
 
+<<<<<<< HEAD
                 let aArray = [{
                     key: "idColSpmon",
                     label: i18n.getText("DateSelect"),
@@ -231,6 +320,70 @@ sap.ui.define(
                     label: i18n.getText("Waers"),
                     path: "Waers"
                 }]
+=======
+                let aArray = [
+                    {
+                        key: "idColBwkey",
+                        label: "플랜트",
+                        path: "Bwkey"
+                    },
+                    {
+                        key: "idColBklast",
+                        label: "평가클래스명",
+                        path: "Bklast"
+                    },
+                    {
+                        key: "idColmaktx",
+                        label: "자재명",
+                        path: "maktx"
+                    },
+                    {
+                        key: "idColMatnr",
+                        label: "자재번호",
+                        path: "Matnr"
+                    },
+                    {
+                        key: "idColExtwg",
+                        label: "분류1",
+                        path: "Extwg"
+                    },
+                    {
+                        key: "idColExtwgt",
+                        label: "분류1명",
+                        path: "Extwgt"
+                    },
+                    {
+                        key: "idColMatkl",
+                        label: "분류2",
+                        path: "Matkl"
+                    },
+                    {
+                        key: "idColMatklt",
+                        label: "분류2명",
+                        path: "Matklt"
+                    },
+                    {
+                        key: "idColSpmon",
+                        label: "조회년월",
+                        path: "Spmon"
+                    },
+                    {
+                        key: "idColBklas",
+                        label: "평가클래스",
+                        path: "Bklas"
+                    },
+                    {
+                        key: "idColMeins",
+                        label: "단위",
+                        path: "Meins"
+                    },
+                    {
+                        key: "idColWaers",
+                        label: "통화",
+                        path: "Waers"
+                    }
+                ]
+>>>>>>> fba58ff (커밋)
 
                 for (let i = 0; i < aColums.length; i++) {
                     aArray.push({

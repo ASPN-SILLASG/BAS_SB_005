@@ -1,5 +1,9 @@
 <mvc:View
+<<<<<<< HEAD
     controllerName="com.dine.mm.zmm0003.controller.Main"
+=======
+    controllerName="z002sb005.controller.Main"
+>>>>>>> fba58ff (커밋)
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -22,7 +26,11 @@
                 <f:content>
                     <smartFilterBar:SmartFilterBar
                         id="mm0003.smartFilterBar"
+<<<<<<< HEAD
                         entitySet="ZSB_R_0005Results"
+=======
+                        entitySet="Z002_SB_005_R_01Results"
+>>>>>>> fba58ff (커밋)
                         persistencyKey="mm0003_smartFilterBar"
                         search=".onSearch">
                         <smartFilterBar:controlConfiguration>
@@ -59,12 +67,183 @@
         </f:header>
 
         <f:content>
+<<<<<<< HEAD
             <smartTable:SmartTable
+=======
+            <table:Table
+                id="idTable"
+                selectionMode="None"
+                selectionBehavior="Row"
+                rowMode="Auto"
+                threshold="3"
+                rowsUpdated=".onRowsUpdated"
+                sort=".onSort"
+                columnResize="onColumnResize"
+                columnMove="onColumnMove"
+                rows="{ path: 'DataModel>/items' }"
+                sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
+                enableBusyIndicator="true"
+            >
+                <table:extension>
+                    <Toolbar height="45px">
+                        <Title
+                            text="{i18n>itleTable}"
+                            level="H2"
+                        />
+                        <ToolbarSeparator />
+                        <vm:VariantManagement
+                            id="idp13nVm"
+                            for="idTable"
+                        />
+                        <ToolbarSpacer />
+
+                        <ToolbarSeparator />
+                        <Button
+                            icon="sap-icon://excel-attachment"
+                            text="{i18n>BTN_EXCEL_DOWN}"
+                            tooltip="Excel export"
+                            press=".excelExport"
+                        />
+
+                        <ToolbarSeparator />
+                        <Button
+                            icon="sap-icon://action-settings"
+                            press=".openPersoDialog"
+                        />
+                    </Toolbar>
+                </table:extension>
+                <table:columns>
+                    <table:Column
+                        width="150px"
+                        id="idColBwkey"
+                        app:p13nKey="idColBwkey">
+                        <Label text="플랜트" />
+                        <table:template>
+                            <Text text="{DataModel>Bwkey}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColBklast"
+                        app:p13nKey="idColBklast">
+                        <Label text="평가클래스명" />
+                        <table:template>
+                            <Text text="{DataModel>Bklast}" />
+                        </table:template>
+                    </table:Column>  
+                    <table:Column
+                        width="150px"
+                        id="idColmaktx"
+                        app:p13nKey="idColmaktx"
+                    >
+                        <Label text="자재명" />
+                        <table:template>
+                            <Text text="{DataModel>maktx}" />
+                        </table:template>
+                    </table:Column>                                      
+                    <table:Column
+                        width="150px"
+                        id="idColMatnr"
+                        app:p13nKey="idColMatnr"
+                    >
+                        <Label text="자재번호" />
+                        <table:template>
+                            <Text text="{DataModel>Matnr}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColExtwg"
+                        app:p13nKey="idColExtwg"
+                    >
+                        <Label text="분류1" />
+                        <table:template>
+                            <Text text="{DataModel>Extwg}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColExtwgt"
+                        app:p13nKey="idColExtwgt"
+                    >
+                        <Label text="분류1명" />
+                        <table:template>
+                            <Text text="{DataModel>Extwgt}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColMatkl"
+                        app:p13nKey="idColMatkl"
+                    >
+                        <Label text="분류2" />
+                        <table:template>
+                            <Text text="{DataModel>Matkl}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColMatklt"
+                        app:p13nKey="idColMatklt"
+                    >
+                        <Label text="분류2명" />
+                        <table:template>
+                            <Text text="{DataModel>Matklt}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColSpmon"
+                        app:p13nKey="idColSpmon"
+                    >
+                        <Label text="조회년월" />
+                        <table:template>
+                            <Text text="{DataModel>Spmon}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColBklas"
+                        app:p13nKey="idColBklas"
+                    >
+                        <Label text="평가클래스" />
+                        <table:template>
+                            <Text text="{DataModel>Bklas}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColMeins"
+                        app:p13nKey="idColMeins"
+                    >
+                        <Label text="단위" />
+                        <table:template>
+                            <Text text="{DataModel>Meins}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColWaers"
+                        app:p13nKey="idColWaers"
+                    >
+                        <Label text="통화" />
+                        <table:template>
+                            <Text text="{DataModel>Waers}" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>        
+            <!-- <smartTable:SmartTable
+>>>>>>> fba58ff (커밋)
                 id="mm0003.smartTable"
                 smartFilterId="mm0003.smartFilterBar"
                 header="수불부"
                 showRowCount="true"
+<<<<<<< HEAD
                 entitySet="ZSB_R_0005Results"
+=======
+                entitySet="Z002_SB_005_R_01Results"
+>>>>>>> fba58ff (커밋)
                 tableType="AnalyticalTable"
                 initiallyVisibleFields=""
                 requestAtLeastFields=""
@@ -82,7 +261,11 @@
                 <smartTable:layoutData>
                     <FlexItemData growFactor="1" baseSize="0%" />
                 </smartTable:layoutData>
+<<<<<<< HEAD
             </smartTable:SmartTable>
+=======
+            </smartTable:SmartTable> -->
+>>>>>>> fba58ff (커밋)
         </f:content>
     </f:DynamicPage>
 </mvc:View>

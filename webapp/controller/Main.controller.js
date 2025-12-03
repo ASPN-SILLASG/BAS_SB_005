@@ -1,16 +1,27 @@
 sap.ui.define([
+<<<<<<< HEAD
     "com/dine/mm/zmm0003/controller/BaseController",
+=======
+    "z002sb005/controller/BaseController",
+>>>>>>> fba58ff (커밋)
     "sap/ui/model/odata/v2/ODataModel",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+<<<<<<< HEAD
     "com/dine/mm/zmm0003/controller/Config/ColumEngine",
     'com/dine/mm/zmm0003/controller/Config/VHDialog',
     "com/dine/mm/zmm0003/controller/Config/ExcelDownLoad",
+=======
+    "z002sb005/controller/Config/ColumEngine",
+    'z002sb005/controller/Config/VHDialog',
+    "z002sb005/controller/Config/ExcelDownLoad",
+>>>>>>> fba58ff (커밋)
     'sap/m/p13n/Engine',
     "sap/ui/core/date/UI5Date",
     "sap/ui/model/Sorter",
 
+<<<<<<< HEAD
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -61,6 +72,26 @@ sap.ui.define([
                   
                   this.sSspmon = formatToYYYYMM(sSspmon);
                   this.sEspmon = formatToYYYYMM(sEspmon);
+=======
+],  function (BaseController, ODataModel, JSONModel, Filter, FilterOperator, ColumEngine, VHDialog, ExcelDownLoad, Engine, UI5Date, Sorter) {
+    "use strict";
+
+    var _oModelMain;
+    var _oDataModel;
+    var _aItemArray = [];
+    var _tableColums = [];
+    var _oTable;
+    var _isLoadingFileds;
+    var _i18n;
+    var _cdsFiledArray;
+
+    var _vPage;
+    const pageSize = 5000;
+
+    return BaseController.extend("z002sb005.controller.Main", {
+        onInit: function () {
+                this.setInitPage();
+>>>>>>> fba58ff (커밋)
             },
 
             setInitPage: function () {
@@ -69,9 +100,14 @@ sap.ui.define([
                 //Text속성 
                 _i18n = this.getOwnerComponent().getModel('i18n').getResourceBundle();
 
+<<<<<<< HEAD
 
                 //메인 Model
                 _oModelMain = new ODataModel("/sap/opu/odata/sap/ZUI_SUBUL_0000_O2", {
+=======
+                //메인 Model
+                _oModelMain = new ODataModel("/sap/opu/odata/sap/Z002_SB_005_UI_01", {
+>>>>>>> fba58ff (커밋)
                     defaultOperationMode: "Server"
                 });
                 this.getOwnerComponent().setModel(_oModelMain, "MainModel");
@@ -81,20 +117,32 @@ sap.ui.define([
                 _oDataModel = new JSONModel({ "items": [] });
                 this.getView().setModel(_oDataModel, "DataModel");
 
+<<<<<<< HEAD
                 _oTable = this.getView().byId("mm0003.smartTable");
                 this.initTableColums();
                 //디폴트로 나와야 할값들
+=======
+                _oTable = this.getView().byId("idTable");
+>>>>>>> fba58ff (커밋)
 
                 //F4
                 this.comDialog = new VHDialog(this);
 
                 //컬럼엔진
                 this.columEngine = new ColumEngine(this);
+<<<<<<< HEAD
+=======
+                this.columEngine.initEngine(_oTable);
+>>>>>>> fba58ff (커밋)
 
                 //테이블 Excel 다운로드 
                 this.excelDownLoad = new ExcelDownLoad(this);
                 
+<<<<<<< HEAD
                 this._registerForP13n();
+=======
+                // this._registerForP13n();
+>>>>>>> fba58ff (커밋)
             },
 
             //===========Odata MeataDataPassing=========
@@ -105,7 +153,11 @@ sap.ui.define([
                 //CDS 모든 필드들 가져 오기
                 let entityList = response.getParameters().metadata.oMetadata.dataServices.schema[0].entityType;
                 for (let i = 0; i < entityList.length; i++) {
+<<<<<<< HEAD
                     if (entityList[i].name == "ZSB_R_0005Results") {
+=======
+                    if (entityList[i].name == "Z002_SB_005_R_01Result") {
+>>>>>>> fba58ff (커밋)
                         _cdsFiledArray = entityList[i].property
                         break;
                     }
@@ -115,8 +167,13 @@ sap.ui.define([
             //=========Dynamic Fields=========
             /**화면 필드 이릅 세팅 Request*/
             getDynamicFields: function (fnCallback) {
+<<<<<<< HEAD
 
                 _oModelMain.read("/TableSetting", {
+=======
+                _oModelMain.read("/TableSetting",{
+                    urlParameters : { $top : 10000 }, 
+>>>>>>> fba58ff (커밋)
                     success: function (response) {
                         let aArray = response.results;
 
@@ -145,6 +202,7 @@ sap.ui.define([
             },
 
             //=================Action=============
+<<<<<<< HEAD
             // onSearch: function () {
 
             //     if (!this.checkFBValue()) return;
@@ -164,6 +222,39 @@ sap.ui.define([
             //         this.getData(odatafilter);
             //     }
             // },
+=======
+            onSearch: function () {
+
+                //if (!this.checkFBValue()) return;
+
+                // var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
+                // if (odatafilter.length > 1) {
+                //     odatafilter = new Filter(odatafilter, true);
+                // }
+
+                var _oSmartFilterBar = this.getView().byId("mm0003.smartFilterBar");
+                var aFilterItems = _oSmartFilterBar.getFilters();
+
+                const oDateRangeSelection = this.byId("mm0003.dateRangeSelection");
+
+                const sSspmon = oDateRangeSelection.getProperty("dateValue");
+                const sEspmon = oDateRangeSelection.getProperty("secondDateValue");
+
+                aFilterItems.push(
+                    new sap.ui.model.Filter("Spmon", sap.ui.model.FilterOperator.BT, sSspmon, sEspmon)
+                );
+
+                if (!_isLoadingFileds) {
+                    this.getDynamicFields(function (response) {
+                        if (response == 'S') {
+                            this.getData(aFilterItems);
+                        }
+                    }.bind(this));
+                } else {
+                    this.getData(aFilterItems);
+                }
+            },
+>>>>>>> fba58ff (커밋)
 
             openPersoDialog: function (oEvt) {
                 Engine.getInstance().show(_oTable, ["Columns"], {
@@ -172,13 +263,22 @@ sap.ui.define([
                     source: oEvt.getSource()
                 });
             },
+<<<<<<< HEAD
             onColumnResize: function (oEvt) {
                 this.columEngine.onColumnResize(oEvt, _oTable);
             },
+=======
+
+            onColumnResize: function (oEvt) {
+                this.columEngine.onColumnResize(oEvt, _oTable);
+            },
+
+>>>>>>> fba58ff (커밋)
             onColumnMove:function(oEvt) {
                 this.columEngine.onColumnMove(oEvt, _oTable);
             },
 
+<<<<<<< HEAD
             //==============Process=============
             initTableColums: function () {
 
@@ -211,6 +311,11 @@ sap.ui.define([
             creatExtendFileds: function (oFiled) {
 
                 for (let i = 20; i < _cdsFiledArray.length; i++) {
+=======
+            creatExtendFileds: function (oFiled) {
+
+                for (let i = 13; i < _cdsFiledArray.length; i++) {
+>>>>>>> fba58ff (커밋)
 
                     if (oFiled[_cdsFiledArray[i].name]) {
 
@@ -253,7 +358,13 @@ sap.ui.define([
                     let template;
                     if (_tableColums[i].currency) {
                         template = new sap.m.Text({ wrapping: false, text: "{ parts:['DataModel>" + _tableColums[i].value + "','DataModel>Waers'] , type:'sap.ui.model.type.Currency'}" })
+<<<<<<< HEAD
                     } else {
+=======
+                    } else if(_tableColums[i].columsName.includes("수량")) {
+                        template = new sap.m.Text({ wrapping: false, text: "{ path:'DataModel>" + _tableColums[i].value + "', formatter: '.formatDecimal'}" })
+                    }else {
+>>>>>>> fba58ff (커밋)
                         template = new sap.m.Text({
                             wrapping: false,
                             text: "{DataModel>" + _tableColums[i].value + "}"
@@ -276,6 +387,7 @@ sap.ui.define([
                 }
             },
 
+<<<<<<< HEAD
             //검색필드들 체크
             checkFBValue: function () {
 
@@ -382,6 +494,8 @@ sap.ui.define([
 
             },
 
+=======
+>>>>>>> fba58ff (커밋)
             _registerForP13n: function () {
                 this.oMetadataHelper = this.columEngine.getMetadataHelper(_i18n);
                 this.columEngine.initEngine(_oTable);
@@ -392,16 +506,36 @@ sap.ui.define([
              * @returns 
              */
             excelExport: function () {
+<<<<<<< HEAD
                 if (!this.checkFBValue()) return;
+=======
+                //if (!this.checkFBValue()) return;
+>>>>>>> fba58ff (커밋)
                 this.openLoading();
                 // let filter = [];
                 // if (_oTable.getBinding("rows").oCombinedFilter) {
                 //     filter = _oTable.getBinding("rows").oCombinedFilter.getFilters();
                 // }
 
+<<<<<<< HEAD
                 var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
                 let oSearchDate = this.getView().byId("idFBSpmon");
                 this.excelDownLoad.downLoad(_oModelMain, "/ZSB_R_0005(sspmon='" + this.getYYYYMM(oSearchDate.getDateValue()) + "',espmon='" + this.getYYYYMM(oSearchDate.getSecondDateValue()) + "')/Set", odatafilter, function (code) {
+=======
+                // var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
+                
+                const oDateRangeSelection = this.byId("mm0003.dateRangeSelection");
+
+                const sSspmon = oDateRangeSelection.getProperty("dateValue");
+                const sEspmon = oDateRangeSelection.getProperty("secondDateValue");
+
+                var _oSmartFilterBar = this.getView().byId("mm0003.smartFilterBar");
+                var aFilterItems = _oSmartFilterBar.getFilters();
+
+                // let oSearchDate = this.getView().byId("idFBSpmon");
+                this.excelDownLoad.downLoad(_oModelMain, "/Z002_SB_005_R_01(sspmon='" + this.getYYYYMM(sSspmon) + "',espmon='" + this.getYYYYMM(sEspmon) + "')/Results",
+                             aFilterItems, function (code) {
+>>>>>>> fba58ff (커밋)
                     this.closeLoading();
                 }.bind(this), _oTable.getColumns());
             },
@@ -414,11 +548,16 @@ sap.ui.define([
                 _oDataModel.setProperty("/items", []);
 
                 this._requestDate();
+<<<<<<< HEAD
 
 
             },
 
             
+=======
+            },
+
+>>>>>>> fba58ff (커밋)
             _callBackRequset: function (vCount, aResult, error) {
                 console.log("Page ->" + _vPage);
                 _vPage = _vPage + 1;
@@ -441,6 +580,15 @@ sap.ui.define([
 
                 let oSum = { "Tag": "Sum" };
 
+<<<<<<< HEAD
+=======
+                const oDateRangeSelection = this.byId("mm0003.dateRangeSelection");
+
+                const sSspmon = oDateRangeSelection.getProperty("dateValue");
+                const sEspmon = oDateRangeSelection.getProperty("secondDateValue");
+
+
+>>>>>>> fba58ff (커밋)
                 //Json mModel 로 데이터를 일고 필드중 뒤이 a붙은 값을 합계침
                 if (_aItemArray.length) {
 
@@ -450,7 +598,12 @@ sap.ui.define([
                         if (!oSum.Waers) oSum["Waers"] = oData["Waers"]
 
                         for (let key in oData) {
+<<<<<<< HEAD
 
+=======
+                            oData.Spmon = this.getYYYYMM(sSspmon) + "-" + this.getYYYYMM(sEspmon);
+                            
+>>>>>>> fba58ff (커밋)
                             if (oData.hasOwnProperty(key)) { // key확인
                                 if ((key.endsWith("a") && key.startsWith("f")) || (key.endsWith("m") && key.startsWith("f")) ) {
                                     if (!oSum[key]) {
@@ -462,6 +615,21 @@ sap.ui.define([
                             }
                         }
                     }
+<<<<<<< HEAD
+=======
+                    
+                    for (const key in oSum) {
+                        if (oSum.hasOwnProperty(key)) {
+                            const value = oSum[key];
+
+                            if (typeof value === "number") {
+                                // 숫자면 소수점 셋째 자리까지 포맷
+                                oSum[key] = Number(value.toFixed(3));
+                            } 
+                        }
+                    }
+                 
+>>>>>>> fba58ff (커밋)
                     _aItemArray.push(oSum);
                     _oDataModel.setProperty("/items", _aItemArray);
 
@@ -470,6 +638,7 @@ sap.ui.define([
                 this.closeLoading();
             },
 
+<<<<<<< HEAD
             _requestDate: function () {
                 //필터 가져오기
                 var odatafilter = this._getFilterBarFilters(this.byId("idFilterBar"));
@@ -478,6 +647,28 @@ sap.ui.define([
                 //데이터 호출
                 _oModelMain.read("/ZSB_R_0005(sspmon='" + this.getYYYYMM(oSearchDate.getDateValue()) + "',espmon='" + this.getYYYYMM(oSearchDate.getSecondDateValue()) + "')/Set", {
                     filters: odatafilter,
+=======
+            formatDecimal: function (value) {
+                if (value == null || value === "") {
+                    return "";
+                }
+                return Number(value).toFixed(3); // 항상 소수점 셋째자리
+            },
+
+            _requestDate: function () {
+                // //필터 가져오기                
+                var _oSmartFilterBar = this.getView().byId("mm0003.smartFilterBar");
+                var aFilterItems = _oSmartFilterBar.getFilters();
+
+                const oDateRangeSelection = this.byId("mm0003.dateRangeSelection");
+
+                const sSspmon = oDateRangeSelection.getProperty("dateValue");
+                const sEspmon = oDateRangeSelection.getProperty("secondDateValue");
+
+                //데이터 호출
+                _oModelMain.read("/Z002_SB_005_R_01(sspmon='" + this.getYYYYMM(sSspmon) + "',espmon='" + this.getYYYYMM(sEspmon) + "')/Results", {
+                    filters: aFilterItems,
+>>>>>>> fba58ff (커밋)
                     sorters: [
                         new Sorter("Matnr", true),
                         new Sorter("Bklas", true)
@@ -531,4 +722,8 @@ sap.ui.define([
             },
 
         });
+<<<<<<< HEAD
     });
+=======
+});
+>>>>>>> fba58ff (커밋)

@@ -2,6 +2,7 @@
 
 specVersion: "3.1"
 metadata:
+<<<<<<< HEAD
   name: com.dine.mm.zmm0003
 type: application
 framework:
@@ -15,6 +16,16 @@ framework:
     - name: sap.ui.comp
     - name: sap.ui.generic.app
     - name: sap.ui.table
+=======
+  name: z002sb005
+type: application
+framework:
+  name: SAPUI5
+  version: 1.130.11
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+>>>>>>> fba58ff (커밋)
     - name: sap.ushell
     - name: themelib_sap_horizon
 server:
@@ -25,6 +36,7 @@ server:
         port: 35729
         path: webapp
         delay: 300
+<<<<<<< HEAD
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
@@ -33,17 +45,41 @@ server:
           - path: /sap
           - url: https://my424846-api.s4hana.cloud.sap
             authenticationType: reentranceTicket
+=======
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        flp:
+          theme: sap_horizon
+          path: test/flpSandbox.html
+          intent:
+            object: z002sb005
+            action: display
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - authenticationType: reentranceTicket # SAML support for vscode
+            path: /sap
+            url: https://my425835.s4hana.cloud.sap
+>>>>>>> fba58ff (커밋)
             destination: SILLA_DEV
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
         mountPath: /
         services:
+<<<<<<< HEAD
           - urlPath: /sap/opu/odata/sap/ZUI_SUBUL_0000_O2
+=======
+          - urlPath: /sap/opu/odata/sap/Z002_SB_005_UI_01
+>>>>>>> fba58ff (커밋)
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations:
+<<<<<<< HEAD
           - localPath: ./webapp/localService/mainService/ZUI_SUBUL_0000_O2_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SUBUL_0000_O2_VAN',Version='0001')/$value/
     - name: fiori-tools-preview
@@ -51,3 +87,7 @@ server:
       configuration:
         component: com.dine.mm.zmm0003
         ui5Theme: sap_horizon
+=======
+          - localPath: ./webapp/localService/mainService/Z002_SB_005_UI_01_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z002_SB_005_UI_01_VAN',Version='0001')/$value/
+>>>>>>> fba58ff (커밋)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 sap.ui.define(
     [
         "sap/ui/core/mvc/Controller"
@@ -12,3 +13,15 @@ sap.ui.define(
     }
   );
   
+=======
+sap.ui.define([
+  "sap/ui/core/mvc/Controller"
+], (BaseController) => {
+  "use strict";
+
+  return BaseController.extend("z002sb005.controller.App", {
+      onInit() {
+      }
+  });
+});
+>>>>>>> fba58ff (커밋)

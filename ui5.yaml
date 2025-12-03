@@ -2,23 +2,37 @@
 
 specVersion: "3.1"
 metadata:
+<<<<<<< HEAD
   name: com.dine.mm.zmm0003
+=======
+  name: z002sb005
+>>>>>>> fba58ff (커밋)
 type: application
 server:
   customMiddleware:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
+<<<<<<< HEAD
         ignoreCertError: false
+=======
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+>>>>>>> fba58ff (커밋)
         ui5:
           path:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
         backend:
+<<<<<<< HEAD
           - authenticationType: reentranceTicket
             path: /sap
             url: https://my424846-api.s4hana.cloud.sap
+=======
+          - authenticationType: reentranceTicket # SAML support for vscode
+            path: /sap
+            url: https://my425835.s4hana.cloud.sap
+>>>>>>> fba58ff (커밋)
             destination: SILLA_DEV
     - name: fiori-tools-appreload
       afterMiddleware: compression
@@ -29,5 +43,14 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
+<<<<<<< HEAD
         component: com.dine.mm.zmm0003
         ui5Theme: sap_horizon
+=======
+        flp:
+          theme: sap_horizon
+          path: test/flpSandbox.html
+          intent:
+            object: z002sb005
+            action: display
+>>>>>>> fba58ff (커밋)
