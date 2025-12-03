@@ -1,9 +1,5 @@
 <mvc:View
-<<<<<<< HEAD
-    controllerName="com.dine.mm.zmm0003.controller.Main"
-=======
     controllerName="z002sb005.controller.Main"
->>>>>>> fba58ff (커밋)
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -26,11 +22,7 @@
                 <f:content>
                     <smartFilterBar:SmartFilterBar
                         id="mm0003.smartFilterBar"
-<<<<<<< HEAD
-                        entitySet="ZSB_R_0005Results"
-=======
                         entitySet="Z002_SB_005_R_01Results"
->>>>>>> fba58ff (커밋)
                         persistencyKey="mm0003_smartFilterBar"
                         search=".onSearch">
                         <smartFilterBar:controlConfiguration>
@@ -67,9 +59,6 @@
         </f:header>
 
         <f:content>
-<<<<<<< HEAD
-            <smartTable:SmartTable
-=======
             <table:Table
                 id="idTable"
                 selectionMode="None"
@@ -234,16 +223,11 @@
                 </table:columns>
             </table:Table>        
             <!-- <smartTable:SmartTable
->>>>>>> fba58ff (커밋)
                 id="mm0003.smartTable"
                 smartFilterId="mm0003.smartFilterBar"
                 header="수불부"
                 showRowCount="true"
-<<<<<<< HEAD
-                entitySet="ZSB_R_0005Results"
-=======
                 entitySet="Z002_SB_005_R_01Results"
->>>>>>> fba58ff (커밋)
                 tableType="AnalyticalTable"
                 initiallyVisibleFields=""
                 requestAtLeastFields=""
@@ -261,11 +245,7 @@
                 <smartTable:layoutData>
                     <FlexItemData growFactor="1" baseSize="0%" />
                 </smartTable:layoutData>
-<<<<<<< HEAD
-            </smartTable:SmartTable>
-=======
             </smartTable:SmartTable> -->
->>>>>>> fba58ff (커밋)
         </f:content>
     </f:DynamicPage>
 </mvc:View>

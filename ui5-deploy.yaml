@@ -2,11 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-<<<<<<< HEAD
-  name: com.dine.mm.zmm0003
-=======
   name: z002sb005
->>>>>>> fba58ff (커밋)
 type: application
 builder:
   resources:
@@ -19,19 +15,11 @@ builder:
       configuration:
         target:
           destination: SILLA_DEV
-<<<<<<< HEAD
-          url: https://my424846-api.s4hana.cloud.sap
-        app:
-          name: ZSB_0005
-          package: ZSB_0005
-          transport: TXYK900051
-=======
           url: https://my425835.s4hana.cloud.sap
           authenticationType: reentranceTicket # SAML support for vscode
         app:
           name: Z002_SB_005
           package: z002_sb_005
           transport: AAWK900450
->>>>>>> fba58ff (커밋)
         exclude:
           - /test/

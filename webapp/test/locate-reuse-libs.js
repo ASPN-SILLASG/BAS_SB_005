@@ -27,11 +27,7 @@
             "sap.webanalytics",
             "sap.zen"
         ];
-<<<<<<< HEAD
-        function getKeys(libOrComp, libOrCompKeysString) {
-=======
         var getKeys = function (libOrComp, libOrCompKeysString) {
->>>>>>> fba58ff (커밋)
             var libOrCompKeysStringTmp = libOrCompKeysString;
             Object.keys(libOrComp).forEach(function (libOrCompKey) {
                 // ignore libs or Components that start with SAPUI5 delivered namespaces
@@ -44,13 +40,8 @@
                 }
             });
             return libOrCompKeysStringTmp;
-<<<<<<< HEAD
-        }
-        function getComponentUsageNames(compUsages, libOrCompKeysString) {
-=======
         };
         var getComponentUsageNames = function (compUsages, libOrCompKeysString) {
->>>>>>> fba58ff (커밋)
             var libOrCompKeysStringTmp = libOrCompKeysString;
             var compNames = Object.keys(compUsages).map(function (compUsageKey) {
                 return compUsages[compUsageKey].name;
@@ -66,39 +57,6 @@
                 }
             });
             return libOrCompKeysStringTmp;
-<<<<<<< HEAD
-        }
-        return new Promise(function (resolve, reject) {
-            $.ajax(url)
-                .done(function (manifest) {
-                    if (manifest) {
-                        if (
-                            manifest["sap.ui5"] &&
-                            manifest["sap.ui5"].dependencies
-                        ) {
-                            if (manifest["sap.ui5"].dependencies.libs) {
-                                result = getKeys(manifest["sap.ui5"].dependencies.libs, result);
-                            }
-                            if (manifest["sap.ui5"].dependencies.components) {
-                                result = getKeys(manifest["sap.ui5"].dependencies.components, result);
-                            }
-                        }
-                        if (
-                            manifest["sap.ui5"] &&
-                            manifest["sap.ui5"].componentUsages
-                        ) {
-                            result = getComponentUsageNames(manifest["sap.ui5"].componentUsages, result);
-                        }
-                    }
-                    resolve(result);
-                })
-                .fail(function () {
-                    reject(new Error("Could not fetch manifest at '" + manifestPath));
-                });
-        });
-    };
-    function registerModules(dataFromAppIndex) {
-=======
         };
         return new Promise(function (resolve, reject) {
 
@@ -133,7 +91,6 @@
         });
     };
     var registerModules = function (dataFromAppIndex) {
->>>>>>> fba58ff (커밋)
         Object.keys(dataFromAppIndex).forEach(function (moduleDefinitionKey) {
             var moduleDefinition = dataFromAppIndex[moduleDefinitionKey];
             if (moduleDefinition && moduleDefinition.dependencies) {
@@ -141,15 +98,9 @@
                     if (dependency.url && dependency.url.length > 0 && dependency.type === "UI5LIB") {
                         sap.ui.require(["sap/base/Log"], function (Log) {
                             Log.info("Registering Library " +
-<<<<<<< HEAD
-                                dependency.componentId +
-                                " from server " +
-                                dependency.url);
-=======
                                 encodeURI(dependency.componentId) +
                                 " from server " +
                                 encodeURI(dependency.url));
->>>>>>> fba58ff (커밋)
                         });
                         var compId = dependency.componentId.replace(/\./g, "/");
                         var config = {
@@ -162,11 +113,7 @@
                 });
             }
         });
-<<<<<<< HEAD
-    }
-=======
     };
->>>>>>> fba58ff (커밋)
     /**
      * Registers the module paths for dependencies of the given component.
      * @param {string} manifestPath The the path to the app manifest path
@@ -174,11 +121,7 @@
      * @returns {Promise} A promise which is resolved when the ajax request for
      * the app-index was successful and the module paths were registered.
      */
-<<<<<<< HEAD
-    sap.registerComponentDependencyPaths = function (manifestPath) {
-=======
     var registerComponentDependencyPaths = function (manifestPath) {
->>>>>>> fba58ff (커밋)
 
         return fioriToolsGetManifestLibs(manifestPath).then(function (libs) {
             if (libs && libs.length > 0) {
@@ -187,20 +130,6 @@
 
                 return new Promise(
                     function (resolve) {
-<<<<<<< HEAD
-                        sap.ui.require(["sap/base/util/UriParameters"], function (UriParameters) {
-                            sapClient = UriParameters.fromQuery(window.location.search).get("sap-client");
-                            if (sapClient && sapClient.length === 3) {
-                                url = url + "&sap-client=" + sapClient;
-                            }
-                            resolve(url);
-                        });
-                    }).then(function (url2) {
-                        return $.ajax(url2).done(function (data) {
-                            if (data) {
-                                registerModules(data);
-                            }
-=======
                         sapClient = new URLSearchParams(window.location.search).get("sap-client");
                         if (sapClient && sapClient.length === 3) {
                             url = url + "&sap-client=" + sapClient;
@@ -214,7 +143,6 @@
                                         registerModules(data);
                                     }
                                 });
->>>>>>> fba58ff (커밋)
                         });
                     });
             } else {
@@ -222,101 +150,6 @@
             }
         });
     };
-<<<<<<< HEAD
-})(sap);
-
-function registerSAPFonts() {  
-    sap.ui.require(["sap/ui/core/IconPool"], function (IconPool) {  
-    //Fiori Theme font family and URI
-    var fioriTheme = {
-        fontFamily: "SAP-icons-TNT",
-        fontURI: sap.ui.require.toUrl("sap/tnt/themes/base/fonts/")
-    };
-    //Registering to the icon pool
-    IconPool.registerFont(fioriTheme);
-    //SAP Business Suite Theme font family and URI
-    var bSuiteTheme = {
-        fontFamily: "BusinessSuiteInAppSymbols",
-        fontURI: sap.ui.require.toUrl("sap/ushell/themes/base/fonts/")
-    };
-    //Registering to the icon pool
-    IconPool.registerFont(bSuiteTheme);
-    });
-}
-
-/*eslint-disable fiori-custom/sap-browser-api-warning, fiori-custom/sap-no-dom-access*/
-var currentScript = document.getElementById("locate-reuse-libs");
-if (!currentScript) {
-    currentScript = document.currentScript;
-}
-var manifestUri = currentScript.getAttribute("data-sap-ui-manifest-uri");
-var componentName = currentScript.getAttribute("data-sap-ui-componentName");
-var useMockserver = currentScript.getAttribute("data-sap-ui-use-mockserver");
-
-sap.registerComponentDependencyPaths(manifestUri)
-    .catch(function (error) {
-        sap.ui.require(["sap/base/Log"], function (Log) {
-            Log.error(error);
-        });
-    })
-    .finally(function () {
-
-        // setting the app title with internationalization 
-        sap.ui.getCore().attachInit(function () {
-            var sLocale = sap.ui.getCore().getConfiguration().getLanguage();
-            sap.ui.require(["sap/base/i18n/ResourceBundle"], function (ResourceBundle) {
-                var oResourceBundle = ResourceBundle.create({
-                    url: "i18n/i18n.properties",
-                    locale: sLocale
-                });
-                document.title = oResourceBundle.getText("appTitle");
-            });
-        });
-
-        if (componentName && componentName.length > 0) {
-            if (useMockserver && useMockserver === "true") {
-                sap.ui.getCore().attachInit(function () {
-                    registerSAPFonts();
-                    sap.ui.require([componentName.replace(/\./g, "/") + "/localService/mockserver"], function (server) {
-                        // set up test service for local testing
-                        server.init();
-                        // initialize the ushell sandbox component
-                        sap.ushell.Container.createRenderer().placeAt("content");
-                    });
-                });
-            } else {
-                // Requiring the ComponentSupport module automatically executes the component initialisation for all declaratively defined components
-                sap.ui.require(["sap/ui/core/ComponentSupport"]);
-
-                // setting the app title with the i18n text 
-                sap.ui.getCore().attachInit(function () {
-                    registerSAPFonts();
-                    var sLocale = sap.ui.getCore().getConfiguration().getLanguage();
-                    sap.ui.require(["sap/base/i18n/ResourceBundle"], function (ResourceBundle) {
-                        var oResourceBundle = ResourceBundle.create({
-                            url: "i18n/i18n.properties",
-                            locale: sLocale
-                        });
-                        document.title = oResourceBundle.getText("appTitle");
-                    });
-                });
-            }
-        } else {
-            sap.ui.getCore().attachInit(function () {
-                registerSAPFonts();
-                try {
-                    // initialize the ushell sandbox component in ui5 v2
-                    sap.ushell.Container.createRenderer(true).then(function (component) {
-                        component.placeAt("content");
-                    });
-                } catch {
-                    // support older versions of ui5 
-                    sap.ushell.Container.createRenderer().placeAt("content");
-                }
-            });
-        }
-    });
-=======
 
     var registerSAPFonts = function () {  
         sap.ui.require(["sap/ui/core/IconPool"], function (IconPool) {  
@@ -432,4 +265,3 @@ sap.registerComponentDependencyPaths(manifestUri)
             }
         });
 })(sap);
->>>>>>> fba58ff (커밋)

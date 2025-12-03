@@ -2,11 +2,7 @@ sap.ui.define(
     [
         "sap/ui/base/Object",
         "sap/ui/model/json/JSONModel",
-<<<<<<< HEAD
-        "com/dine/mm/zmm0003/controller/Config/AppConfig",
-=======
         "z002sb005/controller/Config/AppConfig",
->>>>>>> fba58ff (커밋)
         "sap/ui/model/Filter",
 
     ],
@@ -15,11 +11,7 @@ sap.ui.define(
         var _diaLog;
         var _isOpen;
 
-<<<<<<< HEAD
-        return BaseObject.extend("com.dine.mm.zmm0003.controller.Config.VHDialog", {
-=======
         return BaseObject.extend("z002sb005.controller.Config.VHDialog", {
->>>>>>> fba58ff (커밋)
 
             constructor: function (control) {
                 this.control = control;

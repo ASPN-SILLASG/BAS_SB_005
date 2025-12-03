@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-sap.ui.define(
-    [
-        "sap/ui/core/mvc/Controller"
-    ],
-    function(BaseController) {
-      "use strict";
-  
-      return BaseController.extend("com.dine.mm.zmm0003.controller.App", {
-        onInit: function() {
-        }
-      });
-    }
-  );
-  
-=======
 sap.ui.define([
   "sap/ui/core/mvc/Controller"
 ], (BaseController) => {
@@ -24,4 +8,3 @@ sap.ui.define([
       }
   });
 });
->>>>>>> fba58ff (커밋)

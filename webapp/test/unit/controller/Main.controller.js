@@ -1,11 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-<<<<<<< HEAD
-	"comdinemm/zmm0003/controller/Main.controller"
-=======
 	"z002sb005/controller/Main.controller"
->>>>>>> fba58ff (커밋)
 ], function (Controller) {
 	"use strict";
 

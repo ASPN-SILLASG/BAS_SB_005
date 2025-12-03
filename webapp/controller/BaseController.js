@@ -20,11 +20,7 @@ sap.ui.define(
     function (BaseController, Sorter, Filter, FilterOperator, JSONModel, ODataModel, Spreadsheet, MessageToast, MessageBox, SearchField, Button, Dialog, UIComponent, History, UI5Date, BusyIndicator) {
         "use strict";
 
-<<<<<<< HEAD
-        return BaseController.extend("com.dine.mm.zmm0003.controller.App", {
-=======
         return BaseController.extend("z002sb005.controller.App", {
->>>>>>> fba58ff (커밋)
             onInit: function () {
 
             },

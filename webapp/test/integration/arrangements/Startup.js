@@ -14,11 +14,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-<<<<<<< HEAD
-					name: "com.dine.mm.zmm0003",
-=======
 					name: "z002sb005",
->>>>>>> fba58ff (커밋)
 					async: true
 				},
 				hash: oOptions.hash,

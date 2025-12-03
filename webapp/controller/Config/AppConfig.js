@@ -14,11 +14,7 @@ sap.ui.define(
     //==============================F4=======================================
     const VHDialog = {
       "PlantVH": {
-<<<<<<< HEAD
-        "viewName": "com/dine/mm/zmm0003/view/fragment/PlantVH",
-=======
         "viewName": "z002sb005/view/fragment/PlantVH",
->>>>>>> fba58ff (커밋)
         "path": "Plant",
         "label": "PlantName",
         "key": "Plant",
@@ -31,11 +27,7 @@ sap.ui.define(
         "defaultValue": []
       },
       "ProductVH": {
-<<<<<<< HEAD
-        "viewName": "com/dine/mm/zmm0003/view/fragment/ProductVH",
-=======
         "viewName": "z002sb005/view/fragment/ProductVH",
->>>>>>> fba58ff (커밋)
         "path": "Product",
         "label": "ProductDescription",
         "key": "Product",
@@ -48,11 +40,7 @@ sap.ui.define(
         "defaultValue": []
       },
       "VClassVH": {
-<<<<<<< HEAD
-        "viewName": "com/dine/mm/zmm0003/view/fragment/VClass",
-=======
         "viewName": "z002sb005/view/fragment/VClass",
->>>>>>> fba58ff (커밋)
         "path": "VClass",
         "label": "Description",
         "key": "ValuationClass",

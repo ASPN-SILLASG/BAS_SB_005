@@ -16,11 +16,7 @@ sap.ui.define(
 
         const pageSize = 5000;
 
-<<<<<<< HEAD
-        return BaseObject.extend("com.dine.mm.zmm0003.controller.Config.ExcelDownLoad", {
-=======
         return BaseObject.extend("z002sb005.controller.Config.ExcelDownLoad", {
->>>>>>> fba58ff (커밋)
 
             constructor: function (control) {
                 this.control = control;

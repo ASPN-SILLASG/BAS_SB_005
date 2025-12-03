@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<mvc:View controllerName="com.dine.mm.zmm0003.controller.App"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <App id="app">
-    </App>
-</mvc:View>
-=======
 <mvc:View controllerName="z002sb005.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
@@ -14,4 +5,3 @@
     <App id="app">
     </App>
 </mvc:View>
->>>>>>> fba58ff (커밋)

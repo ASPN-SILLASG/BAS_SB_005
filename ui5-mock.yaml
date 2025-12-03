@@ -2,37 +2,23 @@
 
 specVersion: "3.1"
 metadata:
-<<<<<<< HEAD
-  name: com.dine.mm.zmm0003
-=======
   name: z002sb005
->>>>>>> fba58ff (커밋)
 type: application
 server:
   customMiddleware:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-<<<<<<< HEAD
-        ignoreCertError: false
-=======
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
->>>>>>> fba58ff (커밋)
         ui5:
           path:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
         backend:
-<<<<<<< HEAD
-          - path: /sap
-            url: https://my424846-api.s4hana.cloud.sap
-            authenticationType: reentranceTicket
-=======
           - authenticationType: reentranceTicket # SAML support for vscode
             path: /sap
             url: https://my425835.s4hana.cloud.sap
->>>>>>> fba58ff (커밋)
             destination: SILLA_DEV
     - name: fiori-tools-appreload
       afterMiddleware: compression
@@ -40,8 +26,6 @@ server:
         port: 35729
         path: webapp
         delay: 300
-<<<<<<< HEAD
-=======
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
@@ -51,25 +35,15 @@ server:
           intent:
             object: z002sb005
             action: display
->>>>>>> fba58ff (커밋)
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
         mountPath: /
         services:
-<<<<<<< HEAD
-          - urlPath: /sap/opu/odata/sap/ZUI_SUBUL_0000_O2
-=======
           - urlPath: /sap/opu/odata/sap/Z002_SB_005_UI_01
->>>>>>> fba58ff (커밋)
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations:
-<<<<<<< HEAD
-          - localPath: ./webapp/localService/mainService/ZUI_SUBUL_0000_O2_VAN.xml
-            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SUBUL_0000_O2_VAN',Version='0001')/$value/
-=======
           - localPath: ./webapp/localService/mainService/Z002_SB_005_UI_01_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z002_SB_005_UI_01_VAN',Version='0001')/$value/
->>>>>>> fba58ff (커밋)

@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "_version": "1.64.0",
-  "sap.app": {
-    "id": "com.dine.mm.zmm0003",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "1.0.2"
-=======
   "_version": "1.65.0",
   "sap.app": {
     "id": "z002sb005",
@@ -15,32 +6,12 @@
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
       "version": "0.0.1"
->>>>>>> fba58ff (커밋)
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-<<<<<<< HEAD
-      "version": "1.14.5",
-      "toolsId": "11b1c617-195f-46c5-847b-4b3ca3fabe4f"
-    },
-    "dataSources": {
-      "ZUI_SUBUL_0000_O2_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SUBUL_0000_O2_VAN',Version='0001')/$value/",
-        "type": "ODataAnnotation",
-        "settings": {
-          "localUri": "localService/mainService/ZUI_SUBUL_0000_O2_VAN.xml"
-        }
-      },
-      "mainService": {
-        "uri": "/sap/opu/odata/sap/ZUI_SUBUL_0000_O2/",
-        "type": "OData",
-        "settings": {
-          "annotations": [
-            "ZUI_SUBUL_0000_O2_VAN"
-=======
       "version": "1.18.4",
       "toolsId": "81e0a04c-6cb8-4378-a2d1-ae8f3fc68f09"
     },
@@ -58,7 +29,6 @@
         "settings": {
           "annotations": [
             "Z002_SB_005_UI_01_VAN"
->>>>>>> fba58ff (커밋)
           ],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
@@ -67,17 +37,10 @@
     },
     "crossNavigation": {
       "inbounds": {
-<<<<<<< HEAD
-        "ZCBO_MM_0003-manage": {
-          "semanticObject": "ZCBO_MM_0003",
-          "action": "manage",
-          "title": "{{flpTitle}}",
-=======
         "z002_sb_005-manage": {
           "semanticObject": "z002_sb_005",
           "action": "manage",
           "title": "{{z002_sb_005-manage.flpTitle}}",
->>>>>>> fba58ff (커밋)
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -87,13 +50,8 @@
     }
   },
   "sap.ui": {
-<<<<<<< HEAD
-    "fullWidth": true,
-    "technology": "UI5",
-=======
     "technology": "UI5",
     "fullWidth": true,
->>>>>>> fba58ff (커밋)
     "icons": {
       "icon": "",
       "favIcon": "",
@@ -109,27 +67,12 @@
     }
   },
   "sap.ui5": {
-<<<<<<< HEAD
-    "flexEnabled": false,
-    "dependencies": {
-      "minUI5Version": "1.124.5",
-      "libs": {
-        "sap.m": {},
-        "sap.ui.core": {},
-        "sap.f": {},
-        "sap.suite.ui.generic.template": {},
-        "sap.ui.comp": {},
-        "sap.ui.generic.app": {},
-        "sap.ui.table": {},
-        "sap.ushell": {}
-=======
     "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.130.11",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {}
->>>>>>> fba58ff (커밋)
       }
     },
     "contentDensities": {
@@ -140,11 +83,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-<<<<<<< HEAD
-          "bundleName": "com.dine.mm.zmm0003.i18n.i18n"
-=======
           "bundleName": "z002sb005.i18n.i18n"
->>>>>>> fba58ff (커밋)
         }
       },
       "": {
@@ -168,15 +107,9 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-<<<<<<< HEAD
-        "path": "com.dine.mm.zmm0003.view",
-        "async": true,
-        "viewPath": "com.dine.mm.zmm0003.view"
-=======
         "path": "z002sb005.view",
         "async": true,
         "viewPath": "z002sb005.view"
->>>>>>> fba58ff (커밋)
       },
       "routes": [
         {
@@ -195,17 +128,10 @@
       }
     },
     "rootView": {
-<<<<<<< HEAD
-      "viewName": "com.dine.mm.zmm0003.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
-=======
       "viewName": "z002sb005.view.App",
       "type": "XML",
       "id": "App",
       "async": true
->>>>>>> fba58ff (커밋)
     }
   }
 }
