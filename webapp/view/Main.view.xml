@@ -140,7 +140,7 @@
                             <Text text="{DataModel>Matnr}" />
                         </table:template>
                     </table:Column>
-                    <table:Column
+                    <!-- <table:Column
                         width="150px"
                         id="idColExtwg"
                         app:p13nKey="idColExtwg"
@@ -159,13 +159,13 @@
                         <table:template>
                             <Text text="{DataModel>Extwgt}" />
                         </table:template>
-                    </table:Column>
+                    </table:Column> -->
                     <table:Column
                         width="150px"
                         id="idColMatkl"
                         app:p13nKey="idColMatkl"
                     >
-                        <Label text="분류2" />
+                        <Label text="제품그룹" />
                         <table:template>
                             <Text text="{DataModel>Matkl}" />
                         </table:template>
@@ -175,7 +175,7 @@
                         id="idColMatklt"
                         app:p13nKey="idColMatklt"
                     >
-                        <Label text="분류2명" />
+                        <Label text="제품그룹명" />
                         <table:template>
                             <Text text="{DataModel>Matklt}" />
                         </table:template>
