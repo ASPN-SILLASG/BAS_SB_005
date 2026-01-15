@@ -129,7 +129,7 @@
                         <table:template>
                             <Text text="{DataModel>maktx}" />
                         </table:template>
-                    </table:Column>                                      
+                    </table:Column>
                     <table:Column
                         width="150px"
                         id="idColMatnr"

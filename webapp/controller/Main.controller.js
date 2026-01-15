@@ -60,7 +60,7 @@ sap.ui.define([
                 //테이블 Excel 다운로드 
                 this.excelDownLoad = new ExcelDownLoad(this);
                 
-                // this._registerForP13n();
+                this._registerForP13n();
             },
 
             //===========Odata MeataDataPassing=========
