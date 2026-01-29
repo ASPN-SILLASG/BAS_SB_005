@@ -144,6 +144,28 @@
                             <Text text="{DataModel>Matnr}" />
                         </table:template>
                     </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColProfitCenter"
+                        autoResizable="true"
+                        app:p13nKey="idColProfitCenter"
+                    >
+                        <Label text="손익센터" />
+                        <table:template>
+                            <Text text="{DataModel>ProfitCenter}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column
+                        width="150px"
+                        id="idColProfitCenterName"
+                        autoResizable="true"
+                        app:p13nKey="idColProfitCenterName"
+                    >
+                        <Label text="손익센터명" />
+                        <table:template>
+                            <Text text="{DataModel>ProfitCenterName}" />
+                        </table:template>
+                    </table:Column>
                     <!-- <table:Column
                         width="150px"
                         id="idColExtwg"

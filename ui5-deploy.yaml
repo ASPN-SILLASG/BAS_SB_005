@@ -20,6 +20,6 @@ builder:
         app:
           name: Z002_SB_005
           package: z002_sb_005
-          transport: AAWK903259
+          transport: AAWK903263
         exclude:
           - /test/
