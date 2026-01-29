@@ -205,7 +205,17 @@ sap.ui.define([
                     if (_tableColums[i].currency) {
                         template = new sap.m.Text({ wrapping: false, text: "{ parts:['DataModel>" + _tableColums[i].value + "','DataModel>Waers'] , type:'sap.ui.model.type.Currency'}" })
                     } else if(_tableColums[i].columsName.includes("수량")) {
-                        template = new sap.m.Text({ wrapping: false, text: "{ path:'DataModel>" + _tableColums[i].value + "', formatter: '.formatDecimal'}" })
+                        //template = new sap.m.Text({ wrapping: false, text: "{ path:'DataModel>" + _tableColums[i].value + "', formatter: '.formatDecimal'}" })
+                        template = new sap.m.Text({ wrapping: false, 
+                                                    text: { path: "DataModel>" + _tableColums[i].value, 
+                                                            type: new sap.ui.model.type.Float({
+                                                                groupingEnabled: true,      // 콤마
+                                                                minFractionDigits: 3,       // 최소 소수 3자리
+                                                                maxFractionDigits: 3        // 최대 소수 3자리
+                                                            })
+                                                        }
+                                                });
+
                     }else {
                         template = new sap.m.Text({
                             wrapping: false,
@@ -257,10 +267,11 @@ sap.ui.define([
                 var aFilterItems = _oSmartFilterBar.getFilters();
 
                 // let oSearchDate = this.getView().byId("idFBSpmon");
+                var vMon = this.getYYYYMM(sSspmon) + "-" + this.getYYYYMM(sEspmon);
                 this.excelDownLoad.downLoad(_oModelMain, "/Z002_SB_005_R_01(sspmon='" + this.getYYYYMM(sSspmon) + "',espmon='" + this.getYYYYMM(sEspmon) + "')/Results",
                              aFilterItems, function (code) {
                     this.closeLoading();
-                }.bind(this), _oTable.getColumns());
+                }.bind(this), _oTable.getColumns(), vMon);
             },
 
             getData: function () {
@@ -347,7 +358,17 @@ sap.ui.define([
                 if (value == null || value === "") {
                     return "";
                 }
-                return Number(value).toFixed(3); // 항상 소수점 셋째자리
+
+                const num = Number(value);
+
+                if (isNaN(num)) {
+                    return value; // 숫자가 아니면 그대로 반환 (선택)
+                }
+
+                return num.toLocaleString("en-US", {
+                    minimumFractionDigits: 3,
+                    maximumFractionDigits: 3
+                });
             },
 
             _requestDate: function () {

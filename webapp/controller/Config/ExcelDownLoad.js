@@ -13,6 +13,7 @@ sap.ui.define(
         var _oModel;
         var _vPath;
         var _filters;
+        var _sMon;
 
         const pageSize = 5000;
 
@@ -22,12 +23,14 @@ sap.ui.define(
                 this.control = control;
 
             },
-            downLoad: function (oModel, path, filters, callBack, aColumns) {
+
+            downLoad: function (oModel, path, filters, callBack, aColumns, sMon) {
                 _vPage = 0;
                 _aItemArray = [];
                 _oModel = oModel;
                 _vPath = path;
                 _filters = filters;
+                _sMon = sMon;
 
                 _downLoadCloums = this.getColoums(aColumns, _cloums);
                 
@@ -53,6 +56,10 @@ sap.ui.define(
                     this._requestDate(_oModel, _vPath, _filters, callBack);
                     return;
                 }
+
+                _aItemArray.forEach((items)=>{  
+                    items.Spmon = _sMon;
+                })
 
                 var oConfiguration = {
                     context: {
@@ -92,9 +99,6 @@ sap.ui.define(
 
                 });
             },
-
-
-
 
             getColoums: function (aColumns, defaultArray) {
                 let colums = [];

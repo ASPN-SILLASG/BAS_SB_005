@@ -105,6 +105,7 @@
                     <table:Column
                         width="150px"
                         id="idColBwkey"
+                        autoResizable="true"
                         app:p13nKey="idColBwkey">
                         <Label text="플랜트" />
                         <table:template>
@@ -114,6 +115,7 @@
                     <table:Column
                         width="150px"
                         id="idColBklast"
+                        autoResizable="true"
                         app:p13nKey="idColBklast">
                         <Label text="평가클래스명" />
                         <table:template>
@@ -123,6 +125,7 @@
                     <table:Column
                         width="150px"
                         id="idColmaktx"
+                        autoResizable="true"
                         app:p13nKey="idColmaktx"
                     >
                         <Label text="자재명" />
@@ -133,6 +136,7 @@
                     <table:Column
                         width="150px"
                         id="idColMatnr"
+                        autoResizable="true"
                         app:p13nKey="idColMatnr"
                     >
                         <Label text="자재번호" />
@@ -163,6 +167,7 @@
                     <table:Column
                         width="150px"
                         id="idColMatkl"
+                        autoResizable="true"
                         app:p13nKey="idColMatkl"
                     >
                         <Label text="제품그룹" />
@@ -173,6 +178,7 @@
                     <table:Column
                         width="150px"
                         id="idColMatklt"
+                        autoResizable="true"
                         app:p13nKey="idColMatklt"
                     >
                         <Label text="제품그룹명" />
@@ -183,6 +189,7 @@
                     <table:Column
                         width="150px"
                         id="idColSpmon"
+                        autoResizable="true"
                         app:p13nKey="idColSpmon"
                     >
                         <Label text="조회년월" />
@@ -193,6 +200,7 @@
                     <table:Column
                         width="150px"
                         id="idColBklas"
+                        autoResizable="true"
                         app:p13nKey="idColBklas"
                     >
                         <Label text="평가클래스" />
@@ -203,6 +211,7 @@
                     <table:Column
                         width="150px"
                         id="idColMeins"
+                        autoResizable="true"
                         app:p13nKey="idColMeins"
                     >
                         <Label text="단위" />
@@ -213,6 +222,7 @@
                     <table:Column
                         width="150px"
                         id="idColWaers"
+                        autoResizable="true"
                         app:p13nKey="idColWaers"
                     >
                         <Label text="통화" />
