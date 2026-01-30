@@ -164,25 +164,35 @@ sap.ui.define(
                         path: "Matnr"
                     },
                     {
-                        key: "idColExtwg",
-                        label: "분류1",
-                        path: "Extwg"
-                    },
+                        key: "idColProfitCenter",
+                        label: "손익센터",
+                        path: "ProfitCenter"
+                    },,
                     {
-                        key: "idColExtwgt",
-                        label: "분류1명",
-                        path: "Extwgt"
+                        key: "idColProfitCenterName",
+                        label: "손익센터명",
+                        path: "ProfitCenterName"
                     },
-                    {
-                        key: "idColMatkl",
-                        label: "분류2",
-                        path: "Matkl"
-                    },
-                    {
-                        key: "idColMatklt",
-                        label: "분류2명",
-                        path: "Matklt"
-                    },
+                    // {
+                    //     key: "idColExtwg",
+                    //     label: "분류1",
+                    //     path: "Extwg"
+                    // },
+                    // {
+                    //     key: "idColExtwgt",
+                    //     label: "분류1명",
+                    //     path: "Extwgt"
+                    // },
+                    // {
+                    //     key: "idColMatkl",
+                    //     label: "분류2",
+                    //     path: "Matkl"
+                    // },
+                    // {
+                    //     key: "idColMatklt",
+                    //     label: "분류2명",
+                    //     path: "Matklt"
+                    // },
                     {
                         key: "idColSpmon",
                         label: "조회년월",

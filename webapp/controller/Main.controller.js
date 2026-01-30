@@ -205,7 +205,7 @@ sap.ui.define([
                     if (_tableColums[i].currency) {
                         template = new sap.m.Text({ wrapping: false, text: "{ parts:['DataModel>" + _tableColums[i].value + "','DataModel>Waers'] , type:'sap.ui.model.type.Currency'}" })
                     } else if(_tableColums[i].columsName.includes("수량")) {
-                        //template = new sap.m.Text({ wrapping: false, text: "{ path:'DataModel>" + _tableColums[i].value + "', formatter: '.formatDecimal'}" })
+                   //     template = new sap.m.Text({ wrapping: false, text: "{ path:'DataModel>" + _tableColums[i].value + "', formatter: '.formatDecimal'}" })
                         template = new sap.m.Text({ wrapping: false, 
                                                     text: { path: "DataModel>" + _tableColums[i].value, 
                                                             type: new sap.ui.model.type.Float({
@@ -310,8 +310,7 @@ sap.ui.define([
 
                 const sSspmon = oDateRangeSelection.getProperty("dateValue");
                 const sEspmon = oDateRangeSelection.getProperty("secondDateValue");
-
-
+                
                 //Json mModel 로 데이터를 일고 필드중 뒤이 a붙은 값을 합계침
                 if (_aItemArray.length) {
 
